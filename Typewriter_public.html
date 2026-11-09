@@ -7,148 +7,151 @@
 
 <style>
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #08090f;
-    color: #f4f4f7;
-    min-height: 100vh;
-    padding: 25px;
+  margin: 0;
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+  background: #080b12;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
 }
 
 .app {
-    max-width: 900px;
-    margin: auto;
-}
-
-header {
-    margin-bottom: 25px;
+  width: 100%;
+  max-width: 650px;
+  padding: 28px;
+  border-radius: 24px;
+  background: rgba(20, 25, 38, 0.92);
+  border: 1px solid rgba(255,255,255,.08);
+  box-shadow: 0 20px 60px rgba(0,0,0,.45);
 }
 
 h1 {
-    margin: 0;
-    font-size: 38px;
+  margin: 0 0 5px;
+  font-size: 32px;
 }
 
 .subtitle {
-    color: #8f93a3;
-    margin-top: 6px;
-}
-
-.card {
-    background: #10111a;
-    border: 1px solid #292c3c;
-    border-radius: 22px;
-    padding: 28px;
-    margin-bottom: 20px;
-    box-shadow: 0 10px 40px rgba(0,0,0,.25);
-}
-
-label {
-    display: block;
-    color: #a9adbd;
-    margin-bottom: 8px;
-    font-size: 15px;
-}
-
-textarea,
-input {
-    width: 100%;
-    background: #070810;
-    color: white;
-    border: 1px solid #303448;
-    border-radius: 15px;
-    padding: 16px;
-    font-size: 17px;
-    outline: none;
+  color: #8f9bb3;
+  margin-bottom: 25px;
 }
 
 textarea {
-    min-height: 180px;
-    resize: vertical;
+  width: 100%;
+  min-height: 150px;
+  resize: vertical;
+  padding: 18px;
+  border-radius: 16px;
+  border: 1px solid #30384d;
+  background: #0d111b;
+  color: white;
+  font-size: 18px;
+  outline: none;
 }
 
-textarea:focus,
-input:focus {
-    border-color: #6575ff;
+textarea:focus {
+  border-color: #6c7cff;
 }
 
-.counter {
-    text-align: right;
-    color: #777c90;
-    margin-top: 7px;
+.row {
+  display: flex;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+button {
+  flex: 1;
+  padding: 14px;
+  border: 0;
+  border-radius: 13px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 15px;
+  color: white;
+  background: #252d42;
+}
+
+button:hover {
+  background: #323c57;
+}
+
+.send {
+  background: #5865f2;
+}
+
+.send:hover {
+  background: #4752c4;
 }
 
 .quick {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin: 18px 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 18px;
 }
 
 .quick button {
-    background: #191b27;
-    color: #c9ccda;
-    border: 1px solid #303448;
-    border-radius: 12px;
-    padding: 11px 16px;
-    cursor: pointer;
-    font-weight: bold;
-}
-
-.quick button:hover {
-    border-color: #6676ff;
-}
-
-.buttons {
-    display: flex;
-    gap: 12px;
-    margin-top: 18px;
-}
-
-button.main,
-button.clear {
-    border: 0;
-    border-radius: 15px;
-    padding: 16px 25px;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-button.main {
-    flex: 1;
-    color: white;
-    background: linear-gradient(90deg,#7658ff,#568cff);
-}
-
-button.clear {
-    background: #1b1d28;
-    color: white;
+  flex: 0 0 auto;
+  padding: 9px 13px;
+  font-size: 13px;
 }
 
 .status {
-    margin-top: 18px;
-    font-weight: bold;
+  margin-top: 20px;
+  padding: 14px;
+  border-radius: 13px;
+  background: #0d111b;
+  border: 1px solid #242c3d;
 }
 
-.ready { color: #62e68b; }
-.sending { color: #ffd45c; }
-.sent { color: #65a7ff; }
-.error { color: #ff6878; }
+.status span {
+  font-weight: bold;
+}
+
+.ready {
+  color: #55e68a;
+}
+
+.sending {
+  color: #ffd166;
+}
+
+.error {
+  color: #ff6b6b;
+}
+
+.counter {
+  text-align: right;
+  color: #7f8ba3;
+  font-size: 12px;
+  margin-top: 6px;
+}
+
+.history {
+  margin-top: 22px;
+}
+
+.history h3 {
+  margin-bottom: 10px;
+}
 
 .history-item {
-    padding: 13px;
-    border-bottom: 1px solid #242736;
-    color: #c6c9d5;
+  padding: 10px 12px;
+  margin-top: 7px;
+  border-radius: 10px;
+  background: #111725;
+  color: #b9c2d4;
+  cursor: pointer;
 }
 
-.small {
-    color: #777c90;
-    font-size: 14px;
+.history-item:hover {
+  background: #182033;
 }
 </style>
 </head>
@@ -157,255 +160,164 @@ button.clear {
 
 <div class="app">
 
-<header>
-    <h1>Typewriter</h1>
-    <div class="subtitle">Send. Fast. Easy.</div>
-</header>
+  <h1>⌨️ Typewriter</h1>
+  <div class="subtitle">Build Logic HTTP Transmitter</div>
 
-<div class="card">
+  <textarea
+    id="message"
+    maxlength="500"
+    placeholder="Type something..."
+  ></textarea>
 
-    <label>Message</label>
+  <div class="counter">
+    <span id="count">0</span>/500
+  </div>
 
-    <textarea
-        id="message"
-        maxlength="500"
-        placeholder="Type anything..."
-    ></textarea>
+  <div class="row">
+    <button class="send" onclick="sendMessage()">SEND</button>
+    <button onclick="clearMessage()">CLEAR</button>
+  </div>
 
-    <div class="counter">
-        <span id="count">0</span> / 500
-    </div>
+  <div class="quick">
+    <button onclick="quick('HELLO')">HELLO</button>
+    <button onclick="quick('START')">START</button>
+    <button onclick="quick('STOP')">STOP</button>
+    <button onclick="quick('ON')">ON</button>
+    <button onclick="quick('OFF')">OFF</button>
+    <button onclick="quick('READY')">READY</button>
+    <button onclick="quick('ERROR')">ERROR</button>
+    <button onclick="quick('TEST')">TEST</button>
+    <button onclick="quick('OK')">OK</button>
+    <button onclick="quick('WELCOME')">WELCOME</button>
+  </div>
 
-    <br>
+  <div class="status">
+    Status:
+    <span id="status" class="ready">READY</span>
+  </div>
 
-    <label>Password</label>
-
-    <input
-        id="password"
-        value="1234"
-        type="text"
-        autocomplete="off"
-    >
-
-    <label style="margin-top:20px;">Quick Messages</label>
-
-    <div class="quick">
-        <button onclick="quick('HELLO')">HELLO</button>
-        <button onclick="quick('START')">START</button>
-        <button onclick="quick('STOP')">STOP</button>
-        <button onclick="quick('ON')">ON</button>
-        <button onclick="quick('OFF')">OFF</button>
-        <button onclick="quick('READY')">READY</button>
-        <button onclick="quick('ERROR')">ERROR</button>
-        <button onclick="quick('TEST')">TEST</button>
-        <button onclick="quick('OK')">OK</button>
-        <button onclick="quick('WELCOME')">WELCOME</button>
-    </div>
-
-    <div class="buttons">
-        <button class="clear" onclick="clearMessage()">CLEAR</button>
-        <button class="main" onclick="sendMessage()">SEND</button>
-    </div>
-
-    <div id="status" class="status ready">
-        READY
-    </div>
-
-</div>
-
-<div class="card">
-    <h2>Recent Messages</h2>
-    <div class="small">Last 5 messages</div>
-
-    <div id="history" style="margin-top:15px;">
-        No messages yet.
-    </div>
-</div>
+  <div class="history">
+    <h3>Recent</h3>
+    <div id="history"></div>
+  </div>
 
 </div>
 
 <script>
-
-/*
-==================================================
-TYPEWRITER CONFIG
-==================================================
-
-IMPORTANT:
-Put the HTTP Transmitter URL here.
-
-Example:
-
-const TRANSMITTER_URL =
-    "https://example.com/";
-
-DO NOT put the password here.
-The password is entered on the page.
-==================================================
-*/
-
-const TRANSMITTER_URL = "PUT_YOUR_TRANSMITTER_URL_HERE";
+const FIREBASE_URL =
+  "https://typewriter-defb-default-rtdb.europe-west1.firebasedatabase.app";
 
 const messageBox = document.getElementById("message");
-const passwordBox = document.getElementById("password");
 const count = document.getElementById("count");
-const statusBox = document.getElementById("status");
+const statusText = document.getElementById("status");
 const historyBox = document.getElementById("history");
 
-let history = JSON.parse(
-    localStorage.getItem("typewriterHistory") || "[]"
-);
+let history = JSON.parse(localStorage.getItem("typewriter_history") || "[]");
 
-function updateCounter() {
-    count.textContent = messageBox.value.length;
-}
-
-messageBox.addEventListener("input", updateCounter);
-
-function quick(text) {
-    messageBox.value = text;
-    updateCounter();
-    messageBox.focus();
-}
-
-function clearMessage() {
-    messageBox.value = "";
-    updateCounter();
-    messageBox.focus();
-}
+messageBox.addEventListener("input", () => {
+  count.textContent = messageBox.value.length;
+});
 
 function setStatus(text, className) {
-    statusBox.textContent = text;
-    statusBox.className = "status " + className;
-}
-
-function saveHistory(message) {
-
-    history.unshift({
-        message: message,
-        time: new Date().toLocaleTimeString()
-    });
-
-    history = history.slice(0, 5);
-
-    localStorage.setItem(
-        "typewriterHistory",
-        JSON.stringify(history)
-    );
-
-    renderHistory();
-}
-
-function renderHistory() {
-
-    if (history.length === 0) {
-        historyBox.innerHTML = "No messages yet.";
-        return;
-    }
-
-    historyBox.innerHTML = history.map(item => `
-        <div class="history-item">
-            <b>${escapeHtml(item.message)}</b>
-            <div class="small">${item.time}</div>
-        </div>
-    `).join("");
-}
-
-function escapeHtml(text) {
-
-    return text
-        .replaceAll("&", "&amp;")
-        .replaceAll("<", "&lt;")
-        .replaceAll(">", "&gt;")
-        .replaceAll('"', "&quot;")
-        .replaceAll("'", "&#039;");
+  statusText.textContent = text;
+  statusText.className = className;
 }
 
 async function sendMessage() {
+  const message = messageBox.value;
 
-    const message = messageBox.value;
-    const password = passwordBox.value;
+  if (!message.trim()) {
+    setStatus("ERROR", "error");
+    return;
+  }
 
-    if (!message) {
-        setStatus("ERROR: Message is empty", "error");
-        return;
+  setStatus("SENDING", "sending");
+
+  try {
+    const response = await fetch(
+      FIREBASE_URL + "/typewriter.json",
+      {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          value: message,
+          timestamp: Date.now()
+        })
+      }
+    );
+
+    if (!response.ok) {
+      throw new Error("HTTP " + response.status);
     }
 
-    if (
-        !TRANSMITTER_URL ||
-        TRANSMITTER_URL === "PUT_YOUR_TRANSMITTER_URL_HERE"
-    ) {
-        setStatus(
-            "ERROR: Transmitter URL is not configured",
-            "error"
-        );
-        return;
-    }
+    addHistory(message);
 
-    setStatus("SENDING...", "sending");
+    setStatus("SENT", "ready");
 
-    /*
-    Automatically create the JSON:
+    setTimeout(() => {
+      setStatus("READY", "ready");
+    }, 1200);
 
-    {"value":"HELLO"}
-
-    It is NOT shown on the page.
-    */
-
-    const json = JSON.stringify({
-        value: message
-    });
-
-    try {
-
-        const url =
-            TRANSMITTER_URL +
-            (TRANSMITTER_URL.includes("?") ? "&" : "?") +
-            "value=" +
-            encodeURIComponent(json);
-
-        const response = await fetch(url, {
-            method: "GET",
-            headers: {
-                "password": password
-            },
-            cache: "no-store"
-        });
-
-        if (!response.ok) {
-            throw new Error(
-                "HTTP " + response.status
-            );
-        }
-
-        setStatus("SENT", "sent");
-
-        saveHistory(message);
-
-    } catch (error) {
-
-        console.error(error);
-
-        setStatus(
-            "ERROR: " + error.message,
-            "error"
-        );
-    }
+  } catch (error) {
+    console.error(error);
+    setStatus("ERROR", "error");
+  }
 }
 
-messageBox.addEventListener("keydown", function(event) {
+function quick(text) {
+  messageBox.value = text;
+  count.textContent = text.length;
+  sendMessage();
+}
 
-    if (event.key === "Enter" && !event.shiftKey) {
-        event.preventDefault();
-        sendMessage();
-    }
+function clearMessage() {
+  messageBox.value = "";
+  count.textContent = "0";
+  messageBox.focus();
+}
 
+function addHistory(message) {
+  history.unshift(message);
+  history = history.slice(0, 5);
+
+  localStorage.setItem(
+    "typewriter_history",
+    JSON.stringify(history)
+  );
+
+  renderHistory();
+}
+
+function renderHistory() {
+  historyBox.innerHTML = "";
+
+  history.forEach(message => {
+    const item = document.createElement("div");
+
+    item.className = "history-item";
+    item.textContent = message;
+
+    item.onclick = () => {
+      messageBox.value = message;
+      count.textContent = message.length;
+    };
+
+    historyBox.appendChild(item);
+  });
+}
+
+messageBox.addEventListener("keydown", event => {
+  if (event.key === "Enter" && (event.ctrlKey || event.metaKey)) {
+    event.preventDefault();
+    sendMessage();
+  }
 });
 
 renderHistory();
-updateCounter();
-
 </script>
 
 </body>
 </html>
+
